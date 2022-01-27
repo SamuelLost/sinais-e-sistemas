@@ -38,7 +38,7 @@ def grafico_par(dominio, sinal):
     par.set_xticks(dominio)
     plt.show()
 
-def grafico_orginal(dominio, sinal):
+def grafico_original(dominio, sinal):
     fig = plt.figure(1)
 
     # Cria as funções a serem plotadas.
@@ -57,18 +57,22 @@ def grafico_dividido(domino, original, par, impar):
 
     g1.stem(domino, original, "k-", "ko", "k-")
     g1.set_title("$x[n]$")
+    g1.set_xlabel('n')
     
     g2.stem(domino, par, "k-", "ko", "k-")
     g2.set_title("$x_{par}[n]$")
+    g2.set_xlabel('n')
 
     g3.stem(domino, impar, "k-", "ko", "k-")
     g3.set_title("$x_{ímpar}[n]$")
+    g3.set_xlabel('n')
 
     g4.stem(domino, (impar + par), "k-", "ko", "k-")
     g4.set_title("$x_{ímpar}[n] + x_{par}[n]$")
-    plt.subplots_adjust(hspace=0.5)
+    g4.set_xlabel('n')
 
-    plt.show()
+    subplots_adjust(top=1.2,hspace=0.5)
+    show()
 
 def expansao(dom_sinal, n0, sinal):
     # Domínio original do sinal de entrada.

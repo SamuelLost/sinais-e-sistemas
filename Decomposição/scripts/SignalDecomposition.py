@@ -75,7 +75,8 @@ def grafico_dividido(domino, original, par, impar):
     show()
 
 def expansao(dom_sinal, n0, sinal):
-    # Domínio original do sinal de entrada.
+    # Série numérica calculada entre o instante inicial até
+    # o instante inicial mais o tamanho do array do sinal.
     domino = range(n0, n0 + len(sinal))
 
     #Um array de zeros com o tamanho do dominio do sinal de entrada
@@ -92,11 +93,11 @@ def expansao(dom_sinal, n0, sinal):
 
     return sinal_expandido
 
-def decompor_sinal(yn, n0):
+def decompor_sinal(sinal, n0):
     #Calculando raio de intervalo para o domínio exendido
-    raio = max(abs(n0), abs(n0 + len(yn) - 1))
+    raio = max(abs(n0), abs(n0 + len(sinal) - 1))
     dom_sinal = np.arange(-raio, raio+1)
-    sinal_entrada = expansao(dom_sinal, n0, yn)
+    sinal_entrada = expansao(dom_sinal, n0, sinal)
     sinal_rebatido = sinal_entrada[::-1]
 
     sinal_par = 0.5 * (sinal_entrada + sinal_rebatido)

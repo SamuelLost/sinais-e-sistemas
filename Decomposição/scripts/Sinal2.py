@@ -1,6 +1,10 @@
 from SignalDecomposition import *
+import numpy as np
+# ## Teste 2 - Sinal par
+# 
+# ### Sinal 2: $x[n] = e^{\cos(n\pi)}$
 
-
+# %%
 n = np.arange(-5,6)
 x = np.exp(np.cos(n * np.pi))
 

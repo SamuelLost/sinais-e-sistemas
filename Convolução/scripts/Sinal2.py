@@ -1,16 +1,17 @@
 from Convolution import *
+
 #Sinal de entrada
 def entrada(n):
-    return 1.5*impulso(n+1) + 0.5*impulso(n) + impulso(n-1)
+    return 0.5*impulso(n) + 2*impulso(n-1)
 
 #Resposta ao impulso h[n]
 def h(n):
-    return 0.5*impulso(n+1) + impulso(n) + 1.5*impulso(n-1)
+    return impulso(n) + impulso(n-1) + impulso(n-2)
 
-n = np.arange(-3, 6) # Intervalo -1 <= n < 6
+n = np.arange(-2, 5) # Intervalo -2 <= n < 5
 
 # Resposta da convolução
-y = 2*h(n-2) + 2*h(n-1) + h(n) + h(n-1) + h(n-2)
+y = entrada(0)*h(n) + entrada(1)*h(n-1)
 
 x = entrada(n)
 resp_imp = h(n)

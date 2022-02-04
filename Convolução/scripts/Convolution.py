@@ -1,12 +1,9 @@
-# %%
 import numpy as np
 from pylab import *
 
+#Impulso
 def impulso(n):
-    #return 1 if n==0 else 0
     return np.where(n==0, 1, 0)
-
-###########################################
 
 def grafico_divido(dominio, impulso, entrada, resp_impulso, sinal_conv):
     fig, ((g1,g2),(g3,g4)) = plt.subplots(2, 2, num=10)
